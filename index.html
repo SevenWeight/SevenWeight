@@ -3,6 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SevenWeight - Centro specializzato in CrossFit, Weightlifting, Powerlifting e CrossTraining a Torino">
+    <meta name="keywords" content="crossfit torino, weightlifting, powerlifting, palestra, personal trainer, sevenweight">
+    <meta name="author" content="SevenWeight">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2300d4ff'/><text x='50%' y='50%' text-anchor='middle' dy='.35em' font-family='Arial' font-size='20' font-weight='bold' fill='white'>7</text></svg>">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
     <title>SevenWeight - CrossFit, Weightlifting & Powerlifting</title>
     <style>
         * {
@@ -523,7 +539,8 @@
     <section id="contatti" class="contact">
         <div class="container">
             <h2 class="section-title scroll-reveal">Contattami</h2>
-            <form class="contact-form scroll-reveal">
+            <form class="contact-form scroll-reveal" action="https://formspree.io/f/xgvyokra" method="POST">
+                <input type="text" name="_gotcha" style="display:none" />
                 <div class="form-group">
                     <label for="name">Nome</label>
                     <input type="text" id="name" name="name" required>
@@ -541,6 +558,10 @@
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
                 <button type="submit" class="submit-button">Invia Messaggio</button>
+                <p style="text-align: center; margin-top: 1rem; opacity: 0.7;">
+                    Oppure scrivimi direttamente a: 
+                    <a href="mailto:msette96@gmail.com" style="color: var(--accent);">msette96@gmail.com</a>
+                </p>
             </form>
         </div>
     </section>
@@ -608,9 +629,27 @@
 
         // Form Submission
         document.querySelector('.contact-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Grazie per avermi contattato! Ti risponderò al più presto.');
-            e.target.reset();
+            // Non preveniamo più il default per permettere l'invio a Formspree
+            
+            // Invia evento a Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'form_submit', {
+                    'event_category': 'engagement',
+                    'event_label': 'contact_form'
+                });
+            }
+        });
+
+        // Track CTA clicks
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'click', {
+                        'event_category': 'CTA',
+                        'event_label': this.textContent
+                    });
+                }
+            });
         });
     </script>
 </body>
