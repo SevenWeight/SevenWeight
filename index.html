@@ -540,44 +540,60 @@
         <div class="container">
             <h2 class="section-title scroll-reveal">Contattami</h2>
             <p style="text-align: center; margin-bottom: 2rem; color: #666;">
-                Compila il form per ricevere informazioni sui nostri corsi di CrossFit, Weightlifting e Powerlifting
+                Compila il form per ricevere informazioni sui nostri corsi
             </p>
-            <form class="contact-form scroll-reveal" action="https://formspree.io/f/xgvyokra" method="POST">
-                <input type="text" name="_gotcha" style="display:none" />
-                <input type="hidden" name="_subject" value="Nuovo contatto da SevenWeight" />
+            
+            <!-- Form Formspree Base -->
+            <form action="https://formspree.io/f/xgvyokra" method="POST" class="contact-form scroll-reveal">
                 <div class="form-group">
-                    <label for="name">Nome e Cognome *</label>
-                    <input type="text" id="name" name="name" required placeholder="Mario Rossi">
+                    <label>
+                        Il tuo nome:
+                        <input type="text" name="name" required>
+                    </label>
                 </div>
+                
                 <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required placeholder="mario.rossi@email.com">
+                    <label>
+                        La tua email:
+                        <input type="email" name="email" required>
+                    </label>
                 </div>
+                
                 <div class="form-group">
-                    <label for="phone">Telefono</label>
-                    <input type="tel" id="phone" name="phone" placeholder="+39 123 456 7890">
+                    <label>
+                        Telefono (opzionale):
+                        <input type="tel" name="phone">
+                    </label>
                 </div>
+                
                 <div class="form-group">
-                    <label for="service">Servizio di Interesse</label>
-                    <select id="service" name="service" style="width: 100%; padding: 1rem; border: 2px solid #e0e0e0; border-radius: 10px; font-family: inherit;">
-                        <option value="">Seleziona un servizio</option>
-                        <option value="crossfit">CrossFit</option>
-                        <option value="weightlifting">Weightlifting</option>
-                        <option value="powerlifting">Powerlifting</option>
-                        <option value="crosstraining">CrossTraining</option>
-                        <option value="tutti">Voglio info su tutti i servizi</option>
-                    </select>
+                    <label>
+                        Servizio di interesse:
+                        <select name="service" style="width: 100%; padding: 1rem; border: 2px solid #e0e0e0; border-radius: 10px; font-family: inherit; margin-top: 0.5rem;">
+                            <option value="">Seleziona un servizio</option>
+                            <option value="crossfit">CrossFit</option>
+                            <option value="weightlifting">Weightlifting</option>
+                            <option value="powerlifting">Powerlifting</option>
+                            <option value="crosstraining">CrossTraining</option>
+                            <option value="tutti">Tutti i servizi</option>
+                        </select>
+                    </label>
                 </div>
+                
                 <div class="form-group">
-                    <label for="message">Messaggio *</label>
-                    <textarea id="message" name="message" rows="5" required placeholder="Ciao, vorrei informazioni su..."></textarea>
+                    <label>
+                        Il tuo messaggio:
+                        <textarea name="message" rows="5" required></textarea>
+                    </label>
                 </div>
-                <button type="submit" class="submit-button">Invia Messaggio</button>
-                <p style="text-align: center; margin-top: 1rem; opacity: 0.7;">
-                    Oppure scrivimi direttamente a: 
-                    <a href="mailto:msette96@gmail.com" style="color: var(--accent);">msette96@gmail.com</a>
-                </p>
+                
+                <button type="submit" class="submit-button">Invia</button>
             </form>
+            
+            <p style="text-align: center; margin-top: 2rem; opacity: 0.7;">
+                Oppure scrivimi direttamente a: 
+                <a href="mailto:msette96@gmail.com" style="color: var(--accent);">msette96@gmail.com</a>
+            </p>
         </div>
     </section>
 
