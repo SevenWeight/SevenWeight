@@ -642,19 +642,9 @@
             lastScroll = currentScroll;
         });
 
-        // Form Submission
-        document.querySelector('.contact-form').addEventListener('submit', (e) => {
-            // Non preveniamo più il default per permettere l'invio a Formspree
-            
-            // Invia evento a Google Analytics
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'form_submit', {
-                    'event_category': 'engagement',
-                    'event_label': 'contact_form'
-                });
-            }
-        });
-
+        // Form Submission - Rimuoviamo completamente l'event listener per non interferire
+        // Formspree gestirà tutto automaticamente
+        
         // Track CTA clicks
         document.querySelectorAll('.cta-button').forEach(button => {
             button.addEventListener('click', function() {
